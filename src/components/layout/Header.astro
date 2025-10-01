@@ -1,0 +1,118 @@
+---
+export interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+
+const navLinks = [
+  { name: "Inicio", href: "/" },
+  { name: "Servicios", href: "#services" },
+  { name: "Nosotros", href: "#about" },
+  { name: "Contacto", href: "#contact" },
+];
+---
+
+<header
+  class={`sticky top-0 z-50 w-full bg-white shadow-sm border-b border-gray-200 ${className}`}
+>
+  <nav class="container mx-auto px-4 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href="/" class="flex items-center">
+          <img
+            src="/images/logos/thesource-logo.webp"
+            alt="The Source Logo"
+            class="h-10 w-auto"
+            width="120"
+            height="40"
+          />
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-8">
+        {
+          navLinks.map((link) => (
+            <a
+              href={link.href}
+              class="text-gray-700 hover:text-primary-600 transition-colors duration-200 font-medium"
+            >
+              {link.name}
+            </a>
+          ))
+        }
+      </div>
+
+      <!-- CTA Button -->
+      <div class="hidden md:flex items-center space-x-4">
+        <a
+          href="#contact"
+          class="px-6 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors duration-200 font-medium"
+        >
+          Comenzar
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button
+        type="button"
+        class="md:hidden inline-flex items-center justify-center p-2 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
+        aria-expanded="false"
+        aria-label="Abrir menú"
+        id="mobile-menu-button"
+      >
+        <svg
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="hidden md:hidden" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        {
+          navLinks.map((link) => (
+            <a
+              href={link.href}
+              class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-primary-600 transition-colors duration-200"
+            >
+              {link.name}
+            </a>
+          ))
+        }
+        <a
+          href="#contact"
+          class="block px-3 py-2 mt-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors duration-200 font-medium text-center"
+        >
+          Comenzar
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener("click", () => {
+      const isExpanded =
+        mobileMenuButton.getAttribute("aria-expanded") === "true";
+      mobileMenuButton.setAttribute("aria-expanded", String(!isExpanded));
+      mobileMenu.classList.toggle("hidden");
+    });
+  }
+</script>
