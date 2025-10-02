@@ -38,14 +38,27 @@ const {
   </div>
 
   <!-- Contenido del banner -->
-  <a
-    href={href}
-    class="relative z-10 block w-full h-full flex items-center justify-center hover:opacity-90 transition-opacity duration-300"
-  >
+  <div class="absolute bottom-0 left-0 right-0 z-10">
     <!-- Banner content placeholder -->
-    <div class="text-center text-white">
-      <h1 class="text-6xl font-bold mb-4">Hero Banner</h1>
-      <p class="text-xl opacity-90">Click para navegar</p>
+    <div class="container mx-auto px-4 lg:px-8 py-16">
+      <div class="text-left text-neutral-100">
+        <h1 class="text-6xl font-bold mb-4 font-archivo-black-static uppercase">
+          TU TIENDA DE
+          <img
+            src="/images/graphics/magic-card.png"
+            alt="Magic The Gathering Card"
+            class="inline-block w-[60px] h-[60px] mx-2 align-middle"
+          />
+          <br />
+          CARTAS FAVORITA
+        </h1>
+        <p class="text-xl max-w-2xl">
+          Descubre el mundo mágico de las cartas coleccionables en nuestra
+          tienda especializada. Participa en nuestros torneos semanales,
+          encuentra la comunidad perfecta de jugadores y lleva tu estrategia al
+          siguiente nivel.
+        </p>
+      </div>
     </div>
-  </a>
+  </div>
 </section>
