@@ -1,0 +1,243 @@
+---
+// ProductSection.astro - Sección de productos
+import MagicCard from "../ui/MagicCard.astro";
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className = "", ...rest } = Astro.props;
+
+// Cartas destacadas para mostrar - usando nombres exactos de Scryfall
+const featuredCardNames = [
+  "Lightning Bolt",
+  "Black Lotus",
+  null, // La carta del centro será "Ignorant Bliss" (original)
+  "Dark Ritual",
+  "Ancestral Recall",
+];
+
+// Función para obtener datos de carta desde Scryfall API
+async function fetchCardData(cardName: string) {
+  try {
+    const response = await fetch(
+      `https://api.scryfall.com/cards/named?exact=${encodeURIComponent(cardName)}`
+    );
+
+    if (!response.ok) {
+      console.warn(`Card not found: ${cardName}`);
+      return null;
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error(`Error fetching card ${cardName}:`, error);
+    return null;
+  }
+}
+
+// Fetch de todas las cartas en paralelo
+const cardsData = await Promise.all(
+  featuredCardNames.map((name) => (name ? fetchCardData(name) : null))
+);
+
+// Procesar cartas con la original en el centro
+const cards = cardsData.map((card, index) => {
+  // Si es la posición 2 (tercera carta - centro) o si no hay datos, usar carta original
+  if (index === 2 || !card) {
+    return {
+      name: "Ignorant Bliss",
+      type: "Instant",
+      ability:
+        "Remove all cards in your hand from the game face down. At the end of turn, return those cards to your hand, then draw a card.",
+      quote:
+        '"A quick step beyond oblivion lies a place so full of thoughts that it leaves no room for your own." -Quyzl, chronarch prodigy',
+      image:
+        "https://external-preview.redd.it/gZTY5v8QGjOAGPjmivYH2d7uPuu6Stqs2Tfsc2nzKMQ.jpg?width=640&crop=smart&auto=webp&s=2eeba2c120ec5aeddbbf73b7b1f7e9e9b7ac2352",
+      artist: "Jeff Miracola",
+      mana: ["1", "R"],
+      icon: "https://media.mtgsalvation.com/attachments/28/45/635032479426660433.png",
+    };
+  }
+
+  // Parsear costo de maná de formato {1}{R} a array ["1", "R"]
+  let parsedMana: string[] = [];
+  if (card.mana_cost) {
+    const matches = card.mana_cost.match(/\{([^}]+)\}/g);
+    if (matches) {
+      parsedMana = matches.map((m: string) => m.replace(/[{}]/g, ""));
+    }
+  }
+
+  return {
+    name: card.name || "Unknown Card",
+    type: card.type_line || "Unknown Type",
+    ability: card.oracle_text || "",
+    quote: card.flavor_text || "",
+    image:
+      card.image_uris?.art_crop ||
+      card.image_uris?.large ||
+      card.image_uris?.normal ||
+      "",
+    artist: card.artist || "Unknown",
+    mana: parsedMana,
+    icon: "https://media.mtgsalvation.com/attachments/28/45/635032479426660433.png",
+  };
+});
+---
+
+<section
+  id="productos"
+  class={`pt-24 bg-black text-neutral-100 ${className}`}
+  {...rest}
+>
+  <!-- Contenedor -->
+  <div class="container mx-auto px-4 lg:px-8">
+    <!-- Cartas en abanico -->
+    <div class="card-fan-container">
+      <div class="card-fan">
+        {
+          cards.map((card, index) => (
+            <div class={`fan-card fan-card-${index + 1}`}>
+              <MagicCard
+                cardTitle={card.name}
+                cardType={card.type}
+                cardAbility={card.ability}
+                cardQuote={card.quote}
+                cardImage={card.image}
+                author={card.artist}
+                manaCost={card.mana}
+                cardIcon={card.icon}
+              />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Header de la sección -->
+    <div class="mt-14 text-center">
+      <h2 class="text-lg font-bold uppercase text-purple-primary mb-2">
+        Productos
+      </h2>
+      <h3
+        class="text-4xl lg:text-5xl font-bold font-archivo-black-static text-neutral-100 mb-4 uppercase"
+      >
+        ENCONTRARAS LO QUE BUSCABAS AQUÍ
+      </h3>
+      <p class="text-xl text-neutral-300 max-w-3xl mx-auto">
+        Explora nuestra selección de cartas más populares y poderosas, si no lo
+        encuentras, te la conseguimos.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .card-fan-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+    perspective: 1000px;
+  }
+
+  .card-fan {
+    position: relative;
+    width: 1100px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .fan-card {
+    position: absolute;
+  }
+
+  /* Carta 1 - Extremo izquierdo */
+  .fan-card-1 {
+    transform: rotate(-16deg) translateY(15px) translateX(-300px);
+    z-index: 1;
+  }
+
+  /* Carta 2 - Izquierda */
+  .fan-card-2 {
+    transform: rotate(-8deg) translateY(8px) translateX(-150px);
+    z-index: 2;
+  }
+
+  /* Carta 3 - Centro */
+  .fan-card-3 {
+    transform: rotate(0deg) translateY(0px);
+    z-index: 3;
+  }
+
+  /* Carta 4 - Derecha */
+  .fan-card-4 {
+    transform: rotate(8deg) translateY(8px) translateX(150px);
+    z-index: 2;
+  }
+
+  /* Carta 5 - Extremo derecho */
+  .fan-card-5 {
+    transform: rotate(16deg) translateY(15px) translateX(300px);
+    z-index: 1;
+  }
+
+  /* Responsive para tablets */
+  @media (max-width: 1024px) {
+    .card-fan {
+      width: 700px;
+      height: 450px;
+    }
+
+    .fan-card-1 {
+      transform: rotate(-14deg) translateY(12px) translateX(-220px) scale(0.85);
+    }
+
+    .fan-card-2 {
+      transform: rotate(-7deg) translateY(6px) translateX(-110px) scale(0.85);
+    }
+
+    .fan-card-3 {
+      transform: rotate(0deg) translateY(0px) scale(0.85);
+    }
+
+    .fan-card-4 {
+      transform: rotate(7deg) translateY(6px) translateX(110px) scale(0.85);
+    }
+
+    .fan-card-5 {
+      transform: rotate(14deg) translateY(12px) translateX(220px) scale(0.85);
+    }
+  }
+
+  /* Responsive para móviles */
+  @media (max-width: 768px) {
+    .card-fan {
+      width: 350px;
+      height: 450px;
+    }
+
+    .fan-card-1 {
+      transform: rotate(-16deg) translateY(20px) translateX(-100px) scale(0.7);
+    }
+
+    .fan-card-2 {
+      transform: rotate(-8deg) translateY(10px) translateX(-50px) scale(0.7);
+    }
+
+    .fan-card-3 {
+      transform: rotate(0deg) translateY(0px) scale(0.7);
+    }
+
+    .fan-card-4 {
+      transform: rotate(8deg) translateY(10px) translateX(50px) scale(0.7);
+    }
+
+    .fan-card-5 {
+      transform: rotate(16deg) translateY(20px) translateX(100px) scale(0.7);
+    }
+  }
+</style>

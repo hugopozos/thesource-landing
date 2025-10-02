@@ -1,0 +1,278 @@
+---
+// MagicCard.astro - Componente reutilizable para mostrar cartas de Magic
+export interface Props {
+  cardTitle?: string;
+  cardType?: string;
+  cardAbility?: string;
+  cardQuote?: string;
+  cardImage?: string;
+  author?: string;
+  manaCost?: string[];
+  cardIcon?: string;
+  class?: string;
+}
+
+const {
+  cardTitle = "Ignorant Bliss",
+  cardType = "Instant",
+  cardAbility = "Remove all cards in your hand from the game face down. At the end of turn, return those cards to your hand, then draw a card.",
+  cardQuote = '"A quick step beyond oblivion lies a place so full of thoughts that it leaves no room for your own." -Quyzl, chronarch prodigy',
+  cardImage = "https://external-preview.redd.it/gZTY5v8QGjOAGPjmivYH2d7uPuu6Stqs2Tfsc2nzKMQ.jpg?width=640&crop=smart&auto=webp&s=2eeba2c120ec5aeddbbf73b7b1f7e9e9b7ac2352",
+  author = "Jeff Miracola",
+  manaCost = ["1", "R"],
+  cardIcon = "https://media.mtgsalvation.com/attachments/28/45/635032479426660433.png",
+  class: className = "",
+  ...rest
+} = Astro.props;
+---
+
+<div class={`magic-card ${className}`} {...rest}>
+  <!-- Barra superior con título y costo de maná -->
+  <div class="bar bar-top">
+    <div class="card-title">{cardTitle}</div>
+    <div class="casting-cost">
+      {
+        manaCost.map((mana) => (
+          <div class={`sprite sprite-${mana.toLowerCase()}`} />
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Imagen de la carta -->
+  <div class="card-image" style={`background-image: url('${cardImage}')`}></div>
+
+  <!-- Barra media con tipo de carta e icono -->
+  <div class="bar bar-mid">
+    <div class="card-title">{cardType}</div>
+    <div class="icon" style={`background-image: url('${cardIcon}')`}></div>
+  </div>
+
+  <!-- Texto de la carta -->
+  <div class="card-text">
+    <div class="card-ability">{cardAbility}</div>
+    <div class="card-quote" set:html={cardQuote} />
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="author">{author}</div>
+    <div class="copyright">1993-2006 Wizards of the Coast</div>
+  </div>
+</div>
+
+<style is:global>
+  .magic-card {
+    position: relative;
+    width: 300px;
+    height: 418px;
+    box-shadow: inset 0 0 0 14px #000;
+    border-radius: 10px;
+    padding: 14px;
+    background-image: url(https://background-tiles.com/overview/red/patterns/large/1021.png);
+  }
+
+  .bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #debca7;
+    margin: 7px;
+    margin-bottom: 0;
+    padding: 1px 4px;
+    box-shadow: 0 0 0 3px #bd4129;
+    border-radius: 3px / 10px;
+  }
+
+  .bar-top {
+    margin-top: 10px;
+  }
+
+  .card-title {
+    letter-spacing: 1px;
+    font-weight: 600;
+    color: #000;
+  }
+
+  .casting-cost {
+    display: flex;
+    gap: 2px;
+  }
+
+  .sprite {
+    border-radius: 50%;
+    background-image: url(https://mtgcardsmith.com/view/images/cards/m15/mana/spritesheet.png);
+  }
+
+  /* Números */
+  .sprite-0,
+  .sprite-1,
+  .sprite-2,
+  .sprite-3,
+  .sprite-4,
+  .sprite-5,
+  .sprite-6,
+  .sprite-7,
+  .sprite-8,
+  .sprite-9,
+  .sprite-10 {
+    width: 15px;
+    height: 15px;
+  }
+
+  .sprite-0 {
+    background-position: -5px -5px;
+  }
+  .sprite-1 {
+    background-position: -30px -5px;
+  }
+  .sprite-2 {
+    background-position: -55px -5px;
+  }
+  .sprite-3 {
+    background-position: -80px -5px;
+  }
+  .sprite-4 {
+    background-position: -105px -5px;
+  }
+  .sprite-5 {
+    background-position: -130px -5px;
+  }
+  .sprite-6 {
+    background-position: -155px -5px;
+  }
+  .sprite-7 {
+    background-position: -180px -5px;
+  }
+  .sprite-8 {
+    background-position: -205px -5px;
+  }
+  .sprite-9 {
+    background-position: -230px -5px;
+  }
+  .sprite-10 {
+    background-position: -255px -5px;
+  }
+
+  /* Colores de maná */
+  .sprite-w,
+  .sprite-u,
+  .sprite-b,
+  .sprite-r,
+  .sprite-g {
+    width: 15px;
+    height: 15px;
+  }
+
+  .sprite-w {
+    background-position: -5px -105px;
+  } /* White */
+  .sprite-u {
+    background-position: -30px -105px;
+  } /* Blue */
+  .sprite-b {
+    background-position: -105px -105px;
+  } /* Black */
+  .sprite-r {
+    background-position: -53px -105px;
+  } /* Red */
+  .sprite-g {
+    background-position: -80px -105px;
+  } /* Green */
+
+  /* Símbolos especiales */
+  .sprite-x {
+    background-position: -130px -105px;
+  } /* X */
+  .sprite-c {
+    background-position: -155px -105px;
+  } /* Colorless */
+
+  .card-image {
+    position: relative;
+    margin: 0 12px;
+    margin-top: 3px;
+    margin-bottom: -4px;
+    height: 188px;
+    box-shadow: 0 0 0 3px #bd4129;
+    background-size: 130%;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
+    animation: MoveBg 60s linear 0s infinite alternate;
+    animation-play-state: running;
+  }
+
+  @keyframes MoveBg {
+    from {
+      background-position: 50% 0%;
+    }
+    to {
+      background-position: 50% 100%;
+    }
+  }
+
+  .bar-mid {
+    margin-bottom: 3px;
+  }
+
+  .icon {
+    width: 15px;
+    height: 15px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .card-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 5px;
+    margin: 0 12px;
+    height: 115px;
+    box-shadow: 0 0 0 3px #bd4129;
+    background-color: #debca7;
+    color: #000;
+  }
+
+  .card-ability {
+    font-size: 13px;
+    line-height: 1;
+  }
+
+  .card-quote {
+    font-style: italic;
+    font-size: 12px;
+    line-height: 1;
+  }
+
+  .footer {
+    margin-top: 7px;
+    margin-left: 10px;
+    color: #000;
+  }
+
+  .author {
+    font-weight: bold;
+    font-size: 10px;
+  }
+
+  .copyright {
+    font-size: 9px;
+  }
+</style>
+
+<script>
+  // Sincronizar todas las animaciones de las cartas al cargar
+  document.addEventListener("DOMContentLoaded", () => {
+    const cardImages = document.querySelectorAll(".card-image");
+    cardImages.forEach((img) => {
+      const element = img as HTMLElement;
+      // Reiniciar la animación para sincronizar
+      element.style.animation = "none";
+      setTimeout(() => {
+        element.style.animation = "MoveBg 60s linear 0s infinite alternate";
+      }, 10);
+    });
+  });
+</script>
