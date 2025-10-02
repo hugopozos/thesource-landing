@@ -1,0 +1,51 @@
+---
+// HeroSection.astro - Banner simple con enlace
+export interface Props {
+  href?: string;
+  backgroundVideo?: string;
+  class?: string;
+}
+
+const {
+  href = "/",
+  backgroundVideo = "/videos/banners/magic-banner-02.mp4",
+  class: className = "",
+  ...rest
+} = Astro.props;
+---
+
+<section
+  class={`relative min-h-screen flex items-center justify-center pt-16 overflow-hidden ${className}`}
+  {...rest}
+>
+  <!-- Video de fondo -->
+  <video
+    class="absolute inset-0 w-full h-full object-cover"
+    autoplay
+    muted
+    loop
+    playsinline
+  >
+    <source src={backgroundVideo} type="video/mp4" />
+    <!-- Fallback para navegadores que no soportan video -->
+    Tu navegador no soporta videos.
+  </video>
+
+  <!-- Overlay con gradiente -->
+  <div
+    class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/60"
+  >
+  </div>
+
+  <!-- Contenido del banner -->
+  <a
+    href={href}
+    class="relative z-10 block w-full h-full flex items-center justify-center hover:opacity-90 transition-opacity duration-300"
+  >
+    <!-- Banner content placeholder -->
+    <div class="text-center text-white">
+      <h1 class="text-6xl font-bold mb-4">Hero Banner</h1>
+      <p class="text-xl opacity-90">Click para navegar</p>
+    </div>
+  </a>
+</section>

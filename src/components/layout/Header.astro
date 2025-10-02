@@ -13,9 +13,7 @@ const navLinks = [
 ];
 ---
 
-<header
-  class={`sticky top-0 z-50 w-full bg-white shadow-sm border-b border-gray-200 ${className}`}
->
+<header class={`fixed top-0 z-50 w-full ${className}`}>
   <nav class="container mx-auto px-4 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
@@ -37,7 +35,7 @@ const navLinks = [
           navLinks.map((link) => (
             <a
               href={link.href}
-              class="text-gray-700 hover:text-primary-600 transition-colors duration-200 font-medium"
+              class="text-white hover:text-gray-200 transition-colors duration-200 font-medium drop-shadow-lg"
             >
               {link.name}
             </a>
@@ -49,7 +47,7 @@ const navLinks = [
       <div class="hidden md:flex items-center space-x-4">
         <a
           href="#contact"
-          class="px-6 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors duration-200 font-medium"
+          class="px-6 py-2 bg-white/20 backdrop-blur-sm text-white rounded-lg hover:bg-white/30 transition-colors duration-200 font-medium border border-white/30"
         >
           Comenzar
         </a>
@@ -58,7 +56,7 @@ const navLinks = [
       <!-- Mobile menu button -->
       <button
         type="button"
-        class="md:hidden inline-flex items-center justify-center p-2 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
+        class="md:hidden inline-flex items-center justify-center p-2 rounded-lg text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white/50 drop-shadow-lg"
         aria-expanded="false"
         aria-label="Abrir menú"
         id="mobile-menu-button"
@@ -85,7 +83,7 @@ const navLinks = [
           navLinks.map((link) => (
             <a
               href={link.href}
-              class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:bg-gray-100 hover:text-primary-600 transition-colors duration-200"
+              class="block px-3 py-2 rounded-lg text-base font-medium text-white hover:bg-white/20 hover:text-gray-200 transition-colors duration-200"
             >
               {link.name}
             </a>
@@ -93,7 +91,7 @@ const navLinks = [
         }
         <a
           href="#contact"
-          class="block px-3 py-2 mt-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors duration-200 font-medium text-center"
+          class="block px-3 py-2 mt-2 bg-white/20 backdrop-blur-sm text-white rounded-lg hover:bg-white/30 transition-colors duration-200 font-medium text-center border border-white/30"
         >
           Comenzar
         </a>
