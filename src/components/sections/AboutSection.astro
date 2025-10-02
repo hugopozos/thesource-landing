@@ -7,13 +7,29 @@ export interface Props {
 const { class: className = "", ...rest } = Astro.props;
 ---
 
-<section
-  id="about"
-  class={`relative py-20 lg:py-20 bg-black ${className}`}
-  {...rest}
->
+<section id="nosotros" class={`py-24 bg-black text-neutral-100 ${className}`}>
+  <!-- Contenedor -->
   <div class="container mx-auto px-4 lg:px-8">
-    <!-- Header de la sección -->
-    HOLA
+    <!-- Título de la sección -->
+    <div class="grid grid-cols-1 items-center md:grid-cols-2 gap-16">
+      <div class="col-span-1">
+        <h2 class="text-lg font-bold uppercase text-purple-primary">
+          Nosotros
+        </h2>
+        <h3
+          class="text-4xl lg:text-5xl font-bold font-archivo-black-static text-neutral-100 mb-4 uppercase"
+        >
+          MÁS QUE UNA TIENDA, UNA COMUNIDAD
+        </h3>
+      </div>
+      <div class="col-span-1">
+        <p class="text-lg md:text-xl text-neutral-300 leading-relaxed">
+          Ofrecemos el catálogo más completo de cartas, organizamos torneos
+          competitivos cada semana y creamos un espacio donde jugadores de todos
+          los niveles pueden perfeccionar sus estrategias y compartir su pasión
+          por el juego.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
