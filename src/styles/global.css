@@ -2,4 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Eliminar espacios entre secciones */
+section {
+  margin: 0;
+}
+
+/* Asegurar que no haya espacios entre elementos del main */
+main > * {
+  margin: 0;
+}
+
 

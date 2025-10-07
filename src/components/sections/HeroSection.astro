@@ -1,5 +1,7 @@
 ---
 // HeroSection.astro - Banner simple con enlace
+import CTAButton from "../ui/CTAButton.astro";
+
 export interface Props {
   href?: string;
   backgroundVideo?: string;
@@ -39,7 +41,7 @@ const {
 
   <!-- Degradado oscuro en la parte inferior -->
   <div
-    class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/90 via-black/50 to-transparent"
+    class="absolute bottom-0 left-0 right-0 h-3/4 bg-gradient-to-t from-black via-black/80 to-transparent"
   >
   </div>
 
@@ -49,25 +51,103 @@ const {
     <div class="container mx-auto px-4 lg:px-8 py-8 md:py-16">
       <div class="text-left text-neutral-100">
         <h1
-          class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 font-archivo-black-static uppercase leading-tight"
+          class="text-5xl lg:text-6xl font-bold mb-4 font-archivo-black-static uppercase leading-tight gradient-text"
         >
           TU TIENDA DE
           <img
             src="/images/graphics/magic-card.png"
             alt="Magic The Gathering Card"
-            class="inline-block w-[40px] h-[40px] sm:w-[50px] sm:h-[50px] md:w-[60px] md:h-[60px] mx-1 sm:mx-2 align-middle"
+            class="inline-block w-[55px] h-[55px] lg:w-[65px] lg:h-[65px] mx-1 sm:mx-2 align-middle"
           />
           <br />
           CARTAS FAVORITA
         </h1>
         <p
-          class="text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl text-neutral-300 leading-relaxed"
+          class="text-lg lg:text-xl max-w-2xl text-neutral-300 leading-relaxed mb-8"
         >
           Descubre el mundo mágico de las cartas coleccionables en nuestra
           tienda especializada. Participa en nuestros torneos semanales,
           encuentra la comunidad perfecta de jugadores y lleva tu estrategia al
           siguiente nivel.
         </p>
+
+        <!-- CTA Button y Redes Sociales -->
+        <div class="w-full max-w-2xl">
+          <div class="flex items-center gap-6">
+            <!-- CTA Button -->
+            <CTAButton
+              href="#contact"
+              variant="glass"
+              size="lg"
+              class="flex-1 py-2 text-center"
+            >
+              Consigue la carte que buscas
+            </CTAButton>
+
+            <!-- Redes Sociales -->
+            <div class="flex items-center gap-4">
+              <!-- Facebook -->
+              <a
+                href="https://facebook.com/thesource"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Síguenos en Facebook"
+                class="social-icon"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  ></path>
+                </svg>
+              </a>
+
+              <!-- Instagram -->
+              <a
+                href="https://instagram.com/thesource"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Síguenos en Instagram"
+                class="social-icon"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  ></path>
+                </svg>
+              </a>
+
+              <!-- Twitter/X -->
+              <a
+                href="https://twitter.com/thesource"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Síguenos en Twitter"
+                class="social-icon"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -84,6 +164,49 @@ const {
   @media (max-width: 480px) {
     .hero-video {
       object-position: -200px center !important;
+    }
+  }
+
+  /* Gradiente para el texto del título */
+  .gradient-text {
+    background: linear-gradient(135deg, #b946ff 0%, #ca4fff 50%, #d966ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Estilos para iconos de redes sociales */
+  .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    padding: 8px;
+  }
+
+  .social-icon:hover {
+    transform: translateY(-2px);
+    color: #a855f7; /* purple-primary */
+  }
+
+  .social-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* Responsive para móviles */
+  @media (max-width: 640px) {
+    .flex.items-center.gap-6 {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .social-icon svg {
+      width: 24px;
+      height: 24px;
     }
   }
 </style>
