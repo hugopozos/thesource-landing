@@ -9,6 +9,7 @@ export interface Props {
   author?: string;
   manaCost?: string[];
   cardIcon?: string;
+  cardColor?: string;
   class?: string;
 }
 
@@ -21,6 +22,7 @@ const {
   author = "Jeff Miracola",
   manaCost = ["1", "R"],
   cardIcon = "https://media.mtgsalvation.com/attachments/28/45/635032479426660433.png",
+  cardColor = "R",
   class: className = "",
   ...rest
 } = Astro.props;

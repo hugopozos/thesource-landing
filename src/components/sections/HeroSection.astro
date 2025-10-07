@@ -20,7 +20,7 @@ const {
 >
   <!-- Video de fondo -->
   <video
-    class="absolute inset-0 w-full h-full object-cover"
+    class="hero-video absolute inset-0 w-full h-full object-cover object-left md:object-center"
     autoplay
     muted
     loop
@@ -46,19 +46,23 @@ const {
   <!-- Contenido del banner -->
   <div class="absolute bottom-0 left-0 right-0 z-10">
     <!-- Banner content placeholder -->
-    <div class="container mx-auto px-4 lg:px-8 py-16">
+    <div class="container mx-auto px-4 lg:px-8 py-8 md:py-16">
       <div class="text-left text-neutral-100">
-        <h1 class="text-6xl font-bold mb-4 font-archivo-black-static uppercase">
+        <h1
+          class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 font-archivo-black-static uppercase leading-tight"
+        >
           TU TIENDA DE
           <img
             src="/images/graphics/magic-card.png"
             alt="Magic The Gathering Card"
-            class="inline-block w-[60px] h-[60px] mx-2 align-middle"
+            class="inline-block w-[40px] h-[40px] sm:w-[50px] sm:h-[50px] md:w-[60px] md:h-[60px] mx-1 sm:mx-2 align-middle"
           />
           <br />
           CARTAS FAVORITA
         </h1>
-        <p class="text-xl max-w-2xl text-neutral-300">
+        <p
+          class="text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl text-neutral-300 leading-relaxed"
+        >
           Descubre el mundo mágico de las cartas coleccionables en nuestra
           tienda especializada. Participa en nuestros torneos semanales,
           encuentra la comunidad perfecta de jugadores y lleva tu estrategia al
@@ -68,3 +72,18 @@ const {
     </div>
   </div>
 </section>
+
+<style>
+  /* Ajuste específico para dispositivos móviles */
+  @media (max-width: 768px) {
+    .hero-video {
+      object-position: -150px center !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-video {
+      object-position: -200px center !important;
+    }
+  }
+</style>
