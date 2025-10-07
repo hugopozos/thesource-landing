@@ -1,0 +1,120 @@
+---
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+---
+
+<DefaultLayout
+  title="Política de Privacidad - The Source"
+  description="Política de privacidad de The Source"
+>
+  <Header />
+
+  <main class="bg-black text-white min-h-screen">
+    <div class="container mx-auto px-4 lg:px-8 py-16">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl font-bold mb-8 text-purple-primary">
+          Política de Privacidad
+        </h1>
+
+        <div class="prose prose-invert max-w-none">
+          <p class="text-gray-300 mb-6">
+            Última actualización: {new Date().toLocaleDateString("es-ES")}
+          </p>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-white">
+              1. Información que recopilamos
+            </h2>
+            <p class="text-gray-300 mb-4">
+              Recopilamos información que nos proporcionas directamente cuando
+              interactúas con nuestros servicios, como cuando te comunicas con
+              nosotros a través de Instagram o visitas nuestra tienda física.
+            </p>
+            <ul class="list-disc pl-6 text-gray-300 mb-4">
+              <li>
+                Información de contacto (nombre, correo electrónico, teléfono)
+              </li>
+              <li>Información de compras y preferencias</li>
+              <li>Comunicaciones que nos envías</li>
+            </ul>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-white">
+              2. Cómo utilizamos tu información
+            </h2>
+            <p class="text-gray-300 mb-4">
+              Utilizamos la información recopilada para:
+            </p>
+            <ul class="list-disc pl-6 text-gray-300 mb-4">
+              <li>Proporcionar y mejorar nuestros servicios</li>
+              <li>Procesar transacciones y gestionar tu cuenta</li>
+              <li>Comunicarnos contigo sobre productos y eventos</li>
+              <li>Cumplir con obligaciones legales</li>
+            </ul>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-white">
+              3. Compartir información
+            </h2>
+            <p class="text-gray-300 mb-4">
+              No vendemos, alquilamos ni compartimos tu información personal con
+              terceros, excepto en las siguientes circunstancias:
+            </p>
+            <ul class="list-disc pl-6 text-gray-300 mb-4">
+              <li>Con tu consentimiento explícito</li>
+              <li>Para cumplir con la ley o procesos legales</li>
+              <li>
+                Para proteger nuestros derechos y la seguridad de nuestros
+                usuarios
+              </li>
+            </ul>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-white">4. Seguridad</h2>
+            <p class="text-gray-300 mb-4">
+              Implementamos medidas de seguridad apropiadas para proteger tu
+              información personal contra acceso no autorizado, alteración,
+              divulgación o destrucción.
+            </p>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-white">
+              5. Tus derechos
+            </h2>
+            <p class="text-gray-300 mb-4">Tienes derecho a:</p>
+            <ul class="list-disc pl-6 text-gray-300 mb-4">
+              <li>Acceder a tu información personal</li>
+              <li>Corregir información inexacta</li>
+              <li>Solicitar la eliminación de tu información</li>
+              <li>Retirar tu consentimiento en cualquier momento</li>
+            </ul>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-white">6. Contacto</h2>
+            <p class="text-gray-300 mb-4">
+              Si tienes preguntas sobre esta Política de Privacidad, puedes
+              contactarnos a través de:
+            </p>
+            <p class="text-gray-300">
+              Instagram: <a
+                href="https://www.instagram.com/thesource_tcg/"
+                class="text-purple-primary hover:underline"
+                target="_blank"
+                rel="noopener noreferrer">@thesource_tcg</a
+              ><br />
+              Dirección: Av. Urano 14-28, Jardines de Mocambo, 94299
+            </p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</DefaultLayout>

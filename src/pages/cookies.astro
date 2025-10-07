@@ -1,0 +1,213 @@
+---
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+---
+
+<DefaultLayout
+  title="Política de Cookies - The Source"
+  description="Política de cookies de The Source"
+>
+  <Header />
+
+  <main class="bg-black text-white min-h-screen">
+    <div class="container mx-auto px-4 lg:px-8 py-16">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl font-bold mb-8 text-purple-primary">
+          Política de Cookies
+        </h1>
+
+        <div class="prose prose-invert max-w-none">
+          <p class="text-gray-300 mb-6">
+            Última actualización: {new Date().toLocaleDateString("es-ES")}
+          </p>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-white">
+              1. ¿Qué son las cookies?
+            </h2>
+            <p class="text-gray-300 mb-4">
+              Las cookies son pequeños archivos de texto que se almacenan en tu
+              dispositivo cuando visitas un sitio web. Estas cookies nos ayudan
+              a mejorar tu experiencia de navegación y a entender cómo
+              interactúas con nuestro sitio.
+            </p>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-white">
+              2. Tipos de cookies que utilizamos
+            </h2>
+
+            <h3 class="text-xl font-semibold mb-3 text-white">
+              Cookies esenciales
+            </h3>
+            <p class="text-gray-300 mb-4">
+              Estas cookies son necesarias para el funcionamiento básico del
+              sitio web y no se pueden desactivar. Incluyen cookies de sesión y
+              de seguridad.
+            </p>
+
+            <h3 class="text-xl font-semibold mb-3 text-white">
+              Cookies de rendimiento
+            </h3>
+            <p class="text-gray-300 mb-4">
+              Nos ayudan a entender cómo los visitantes interactúan con nuestro
+              sitio web, proporcionando información sobre las páginas visitadas
+              y el tiempo de permanencia.
+            </p>
+
+            <h3 class="text-xl font-semibold mb-3 text-white">
+              Cookies de funcionalidad
+            </h3>
+            <p class="text-gray-300 mb-4">
+              Permiten que el sitio web recuerde las elecciones que haces y
+              proporcionen características mejoradas y más personales.
+            </p>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-white">
+              3. Cookies de terceros
+            </h2>
+            <p class="text-gray-300 mb-4">
+              Nuestro sitio web puede contener cookies de terceros, incluyendo:
+            </p>
+            <ul class="list-disc pl-6 text-gray-300 mb-4">
+              <li>
+                <strong>Google Analytics:</strong> Para analizar el tráfico del sitio
+                web
+              </li>
+              <li>
+                <strong>Redes sociales:</strong> Para funcionalidades de compartir
+                y seguimiento
+              </li>
+              <li>
+                <strong>Servicios de mapas:</strong> Para mostrar ubicaciones
+              </li>
+            </ul>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-white">
+              4. Cómo gestionar las cookies
+            </h2>
+            <p class="text-gray-300 mb-4">
+              Puedes controlar y/o eliminar las cookies como desees. Puedes
+              eliminar todas las cookies que ya están en tu dispositivo y puedes
+              configurar la mayoría de navegadores para que no las acepten.
+            </p>
+
+            <h3 class="text-xl font-semibold mb-3 text-white">
+              Configuración del navegador
+            </h3>
+            <ul class="list-disc pl-6 text-gray-300 mb-4">
+              <li>
+                <strong>Chrome:</strong> Configuración > Privacidad y seguridad >
+                Cookies
+              </li>
+              <li>
+                <strong>Firefox:</strong> Opciones > Privacidad y seguridad > Cookies
+              </li>
+              <li>
+                <strong>Safari:</strong> Preferencias > Privacidad > Cookies
+              </li>
+              <li>
+                <strong>Edge:</strong> Configuración > Cookies y permisos de sitio
+              </li>
+            </ul>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-white">
+              5. Cookies que utilizamos específicamente
+            </h2>
+            <div class="overflow-x-auto">
+              <table class="w-full border-collapse border border-gray-600">
+                <thead>
+                  <tr class="bg-gray-800">
+                    <th class="border border-gray-600 px-4 py-2 text-left"
+                      >Cookie</th
+                    >
+                    <th class="border border-gray-600 px-4 py-2 text-left"
+                      >Propósito</th
+                    >
+                    <th class="border border-gray-600 px-4 py-2 text-left"
+                      >Duración</th
+                    >
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="border border-gray-600 px-4 py-2">session_id</td>
+                    <td class="border border-gray-600 px-4 py-2"
+                      >Identificación de sesión</td
+                    >
+                    <td class="border border-gray-600 px-4 py-2">Sesión</td>
+                  </tr>
+                  <tr>
+                    <td class="border border-gray-600 px-4 py-2">preferences</td
+                    >
+                    <td class="border border-gray-600 px-4 py-2"
+                      >Preferencias del usuario</td
+                    >
+                    <td class="border border-gray-600 px-4 py-2">1 año</td>
+                  </tr>
+                  <tr>
+                    <td class="border border-gray-600 px-4 py-2">analytics</td>
+                    <td class="border border-gray-600 px-4 py-2"
+                      >Análisis de uso</td
+                    >
+                    <td class="border border-gray-600 px-4 py-2">2 años</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-white">
+              6. Consentimiento
+            </h2>
+            <p class="text-gray-300 mb-4">
+              Al continuar navegando por nuestro sitio web, aceptas el uso de
+              cookies de acuerdo con esta política. Si no estás de acuerdo,
+              puedes ajustar la configuración de tu navegador o abandonar el
+              sitio.
+            </p>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-white">
+              7. Actualizaciones
+            </h2>
+            <p class="text-gray-300 mb-4">
+              Esta política de cookies puede actualizarse ocasionalmente. Te
+              recomendamos revisar esta página periódicamente para estar
+              informado sobre cualquier cambio.
+            </p>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-white">8. Contacto</h2>
+            <p class="text-gray-300 mb-4">
+              Si tienes preguntas sobre nuestra política de cookies, puedes
+              contactarnos:
+            </p>
+            <p class="text-gray-300">
+              Instagram: <a
+                href="https://www.instagram.com/thesource_tcg/"
+                class="text-purple-primary hover:underline"
+                target="_blank"
+                rel="noopener noreferrer">@thesource_tcg</a
+              ><br />
+              Dirección: Av. Urano 14-28, Jardines de Mocambo, 94299
+            </p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</DefaultLayout>

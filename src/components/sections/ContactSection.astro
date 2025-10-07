@@ -1,5 +1,5 @@
 ---
-// ContactSection.astro - Sección de contacto
+// ContactSection.astro - Sección de contacto moderna
 export interface Props {
   class?: string;
 }
@@ -13,192 +13,256 @@ const { class: className = "", ...rest } = Astro.props;
   {...rest}
 >
   <!-- Contenedor -->
-  <div class="container mx-auto px-4 lg:px-8">
-    <!-- Header de la sección -->
-    <div class="text-center mb-16">
-      <h2 class="text-lg font-bold uppercase text-purple-primary mb-2">
-        Contacto
-      </h2>
-      <h3
-        class="text-4xl lg:text-5xl font-bold font-archivo-black-static text-neutral-100 mb-4 uppercase"
-      >
-        Estamos Aquí Para Ti
-      </h3>
-      <p class="text-xl text-neutral-300 max-w-3xl mx-auto">
-        ¿Tienes preguntas? Escríbenos y te responderemos lo antes posible
-      </p>
+  <div class="container mx-auto px-4 lg:px-8 relative">
+    <!-- Imagen del wizard como elemento separado -->
+    <div class="wizard-container">
+      <img
+        src="/images/graphics/wizard.png"
+        alt="Wizard"
+        class="wizard-image"
+      />
     </div>
 
-    <!-- Contenido de contacto -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-      <!-- Información de contacto -->
-      <div class="space-y-6">
-        <h4 class="text-2xl font-bold font-archivo-black-static uppercase">
-          Visítanos
-        </h4>
-
-        <!-- Dirección -->
-        <div class="flex items-start space-x-4">
-          <div
-            class="flex-shrink-0 w-12 h-12 bg-purple-primary/10 rounded-lg flex items-center justify-center"
-          >
-            <svg
-              class="w-6 h-6 text-purple-primary"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-              ></path>
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-            </svg>
-          </div>
-          <div>
-            <h5 class="font-semibold text-lg mb-1">Dirección</h5>
-            <p class="text-neutral-300">
-              Av. Principal #123, Centro<br />Ciudad, País
-            </p>
-          </div>
+    <!-- Card principal tipo CTA -->
+    <div class="contact-cta-card">
+      <!-- Contenido principal -->
+      <div class="contact-content">
+        <div class="contact-text">
+          <h2 class="contact-title">¡Gran torneo de apertura!</h2>
+          <p class="contact-subtitle">
+            Sábado 18 de octubre a las 4:00 PM. Compite por los mejores premios
+            y demuestra tu habilidad en el juego de cartas más emocionante.
+            Inscripción: $150 MXN
+          </p>
         </div>
 
-        <!-- Teléfono -->
-        <div class="flex items-start space-x-4">
-          <div
-            class="flex-shrink-0 w-12 h-12 bg-purple-primary/10 rounded-lg flex items-center justify-center"
-          >
-            <svg
-              class="w-6 h-6 text-purple-primary"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+        <!-- Badge de acción integrado -->
+        <div class="contact-badge-integrated">
+          <div class="contact-actions">
+            <a
+              href="https://www.instagram.com/thesource_tcg/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="badge-link"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-              ></path>
-            </svg>
-          </div>
-          <div>
-            <h5 class="font-semibold text-lg mb-1">Teléfono</h5>
-            <p class="text-neutral-300">+123 456 7890</p>
+              <span class="badge-text">Contáctanos</span>
+              <svg
+                class="badge-icon"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M7 17L17 7M17 7H7M17 7V17"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </a>
+            <span class="contact-location"
+              >📍 Av. Urano 14-28, Jardines de Mocambo, 94299</span
+            >
           </div>
         </div>
-
-        <!-- Email -->
-        <div class="flex items-start space-x-4">
-          <div
-            class="flex-shrink-0 w-12 h-12 bg-purple-primary/10 rounded-lg flex items-center justify-center"
-          >
-            <svg
-              class="w-6 h-6 text-purple-primary"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              ></path>
-            </svg>
-          </div>
-          <div>
-            <h5 class="font-semibold text-lg mb-1">Email</h5>
-            <p class="text-neutral-300">contacto@thesource.com</p>
-          </div>
-        </div>
-
-        <!-- Horarios -->
-        <div class="flex items-start space-x-4">
-          <div
-            class="flex-shrink-0 w-12 h-12 bg-purple-primary/10 rounded-lg flex items-center justify-center"
-          >
-            <svg
-              class="w-6 h-6 text-purple-primary"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </div>
-          <div>
-            <h5 class="font-semibold text-lg mb-1">Horarios</h5>
-            <p class="text-neutral-300">
-              Lun - Sáb: 10:00 AM - 8:00 PM<br />Domingo: Cerrado
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Formulario de contacto -->
-      <div class="bg-neutral-900 p-8 rounded-lg border border-neutral-800">
-        <form class="space-y-6">
-          <!-- Nombre -->
-          <div>
-            <label for="name" class="block text-sm font-semibold mb-2">
-              Nombre
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              class="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 text-neutral-100 placeholder-neutral-500 rounded-lg focus:ring-2 focus:ring-purple-primary focus:border-transparent outline-none transition-all"
-              placeholder="Tu nombre"
-            />
-          </div>
-
-          <!-- Email -->
-          <div>
-            <label for="email" class="block text-sm font-semibold mb-2">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              class="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 text-neutral-100 placeholder-neutral-500 rounded-lg focus:ring-2 focus:ring-purple-primary focus:border-transparent outline-none transition-all"
-              placeholder="tu@email.com"
-            />
-          </div>
-
-          <!-- Mensaje -->
-          <div>
-            <label for="message" class="block text-sm font-semibold mb-2">
-              Mensaje
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows="4"
-              class="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 text-neutral-100 placeholder-neutral-500 rounded-lg focus:ring-2 focus:ring-purple-primary focus:border-transparent outline-none transition-all resize-none"
-              placeholder="¿En qué podemos ayudarte?"></textarea>
-          </div>
-
-          <!-- Botón de envío -->
-          <button
-            type="submit"
-            class="w-full bg-purple-primary hover:bg-purple-primary/90 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300"
-          >
-            Enviar Mensaje
-          </button>
-        </form>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  .contact-cta-card {
+    background: linear-gradient(
+      135deg,
+      rgba(202, 79, 255, 0.1) 0%,
+      rgba(202, 79, 255, 0.05) 100%
+    );
+    border: 1px solid rgba(202, 79, 255, 0.2);
+    border-radius: 24px;
+    padding: 3rem 2rem;
+    display: block;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .wizard-container {
+    position: absolute;
+    right: -100px;
+    bottom: 0;
+    top: -80px;
+    z-index: 1;
+    pointer-events: none;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .wizard-image {
+    width: 350px;
+    height: auto;
+    opacity: 1;
+    transform: scaleX(-1);
+    mask: linear-gradient(to top, transparent 0%, black 40%);
+    -webkit-mask: linear-gradient(to top, transparent 0%, black 40%);
+  }
+
+  .contact-cta-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(202, 79, 255, 0.05) 0%,
+      transparent 50%
+    );
+    pointer-events: none;
+  }
+
+  .contact-content {
+    position: relative;
+    z-index: 3;
+    width: fit-content;
+    max-width: 70%;
+  }
+
+  .contact-text {
+    margin-bottom: 2rem;
+  }
+
+  .contact-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    font-family: "Archivo Black", sans-serif;
+    background: linear-gradient(135deg, #ca4fff 0%, #d966ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .contact-subtitle {
+    font-size: 1.25rem;
+    color: #d1d5db;
+    line-height: 1.6;
+    max-width: 500px;
+  }
+
+  .contact-badge-integrated {
+    margin-top: 2rem;
+    position: relative;
+    z-index: 3;
+  }
+
+  .contact-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-location {
+    font-size: 0.9rem;
+    color: #d1d5db;
+    font-weight: 500;
+  }
+
+  .contact-badge {
+    flex-shrink: 0;
+    position: relative;
+    z-index: 3;
+  }
+
+  .badge-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #ca4fff 0%, #d966ff 100%);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(202, 79, 255, 0.2);
+  }
+
+  .badge-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(202, 79, 255, 0.4);
+  }
+
+  .badge-text {
+    font-family: "Archivo Black", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .badge-icon {
+    transition: transform 0.3s ease;
+  }
+
+  .badge-link:hover .badge-icon {
+    transform: translateX(2px);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .contact-cta-card {
+      text-align: center;
+      padding: 2rem 1.5rem;
+    }
+
+    .contact-content {
+      max-width: 100%;
+      width: 100%;
+    }
+
+    .wizard-container {
+      right: -70px;
+      top: -50px;
+    }
+
+    .wizard-image {
+      width: 250px;
+      opacity: 1;
+      mask: linear-gradient(to top, transparent 0%, black 40%);
+      -webkit-mask: linear-gradient(to top, transparent 0%, black 40%);
+    }
+
+    .contact-title {
+      font-size: 2rem;
+    }
+
+    .contact-subtitle {
+      font-size: 1.125rem;
+    }
+
+    .badge-link {
+      padding: 0.875rem 1.5rem;
+      font-size: 1rem;
+    }
+
+    .contact-actions {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .contact-location {
+      font-size: 0.85rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .wizard-container {
+      display: none;
+    }
+  }
+</style>

@@ -1,0 +1,153 @@
+---
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+---
+
+<DefaultLayout
+  title="Términos de Servicio - The Source"
+  description="Términos de servicio de The Source"
+>
+  <Header />
+
+  <main class="bg-black text-white min-h-screen">
+    <div class="container mx-auto px-4 lg:px-8 py-16">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl font-bold mb-8 text-purple-primary">
+          Términos de Servicio
+        </h1>
+
+        <div class="prose prose-invert max-w-none">
+          <p class="text-gray-300 mb-6">
+            Última actualización: {new Date().toLocaleDateString("es-ES")}
+          </p>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-white">
+              1. Aceptación de los Términos
+            </h2>
+            <p class="text-gray-300 mb-4">
+              Al acceder y utilizar los servicios de The Source, ya sea en
+              nuestra tienda física o a través de nuestras plataformas
+              digitales, aceptas estar sujeto a estos Términos de Servicio.
+            </p>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-white">
+              2. Descripción del Servicio
+            </h2>
+            <p class="text-gray-300 mb-4">
+              The Source es una tienda especializada en cartas coleccionables y
+              juegos de mesa. Nuestros servicios incluyen:
+            </p>
+            <ul class="list-disc pl-6 text-gray-300 mb-4">
+              <li>Venta de cartas coleccionables y productos relacionados</li>
+              <li>Organización de torneos y eventos</li>
+              <li>Servicios de consultoría y asesoramiento</li>
+              <li>Comunidad de jugadores y aficionados</li>
+            </ul>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-white">
+              3. Condiciones de Compra
+            </h2>
+            <p class="text-gray-300 mb-4">
+              Todas las compras están sujetas a disponibilidad. Los precios
+              pueden cambiar sin previo aviso. Nos reservamos el derecho de
+              limitar las cantidades de productos que vendemos.
+            </p>
+            <ul class="list-disc pl-6 text-gray-300 mb-4">
+              <li>Los productos se venden tal como están disponibles</li>
+              <li>
+                No ofrecemos garantías sobre la disponibilidad de productos
+                específicos
+              </li>
+              <li>Los precios pueden variar según el mercado</li>
+            </ul>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-white">
+              4. Participación en Eventos
+            </h2>
+            <p class="text-gray-300 mb-4">
+              Al participar en nuestros torneos y eventos:
+            </p>
+            <ul class="list-disc pl-6 text-gray-300 mb-4">
+              <li>Debes cumplir con las reglas oficiales del juego</li>
+              <li>
+                Mantener un comportamiento respetuoso hacia otros participantes
+              </li>
+              <li>Seguir las instrucciones del personal de The Source</li>
+              <li>Entender que las decisiones del juez son finales</li>
+            </ul>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-white">
+              5. Propiedad Intelectual
+            </h2>
+            <p class="text-gray-300 mb-4">
+              Todos los productos que vendemos son propiedad de sus respectivos
+              creadores y editores. The Source es un distribuidor autorizado y
+              respeta todos los derechos de propiedad intelectual.
+            </p>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-white">
+              6. Limitación de Responsabilidad
+            </h2>
+            <p class="text-gray-300 mb-4">
+              The Source no será responsable por daños indirectos, incidentales,
+              especiales o consecuenciales que resulten del uso de nuestros
+              servicios o productos.
+            </p>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-white">
+              7. Modificaciones
+            </h2>
+            <p class="text-gray-300 mb-4">
+              Nos reservamos el derecho de modificar estos términos en cualquier
+              momento. Las modificaciones entrarán en vigor inmediatamente
+              después de su publicación.
+            </p>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-white">
+              8. Ley Aplicable
+            </h2>
+            <p class="text-gray-300 mb-4">
+              Estos términos se rigen por las leyes de México. Cualquier disputa
+              será resuelta en los tribunales competentes de Veracruz.
+            </p>
+          </section>
+
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4 text-white">9. Contacto</h2>
+            <p class="text-gray-300 mb-4">
+              Para preguntas sobre estos Términos de Servicio, contacta con
+              nosotros:
+            </p>
+            <p class="text-gray-300">
+              Instagram: <a
+                href="https://www.instagram.com/thesource_tcg/"
+                class="text-purple-primary hover:underline"
+                target="_blank"
+                rel="noopener noreferrer">@thesource_tcg</a
+              ><br />
+              Dirección: Av. Urano 14-28, Jardines de Mocambo, 94299
+            </p>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</DefaultLayout>
